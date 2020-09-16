@@ -2,6 +2,12 @@
 //     b. Using reduce subtract all of the numbers in the array from an initial number 200
     let numbers = [12, 3, 5, 3, 5, 4]
 
+    let sub = numbers.reduce((acc,curr) => {
+        return acc - curr;
+    }, 200);
+
+   // console.log(sub);
+
 // 2.  Add 500 to each bottle of red wine, then add all the red wine bottles together. Use all three methods we learned today and use method chaining.
     let data = [
     {
@@ -42,6 +48,14 @@
     }
     ];
 
+    let addWine = data 
+    .map((item) => item.numBottles += 500)
+    .filter((item) => item.wineColor === 'red')
+    .reduce((total, num) => total + num, 0);
+
+   // console.log(addWine)
+
+
 // 3.  Just Averages
 //     - Using reduce, return an integer value for the average of all the index values and/or calculated values in an array.
 //     - If the Value is a String, use the character Code number for the first letter in the String.
@@ -51,6 +65,8 @@
       const nums2 = [11.12, 43, 56.22, 78, 98, 11]; // should be 49
       const nums3 = [2, 1222, 3444, 7254, 83.04444, 1111]; // should be 2186
       const nums4 = [2, 1222,'sneeze', 3444, 7254, 8, 'abacus']; //should be 1734
+
+    
 // 4.  Choose all the companies that started after 2000 and sort them ascending
 
     let businesses = [
@@ -61,14 +77,26 @@
             { company: 'TD', startYear: 2001 },
             { company: 'Mastercard', startYear: 2011 },
             { company: 'Citibank', startYear: 2010 },
-            ];
+           ];
+
+    let after2K = businesses
+        .filter((company) => company.startYear > 2000)
+        .sort((company1 , company2) => company1.startYear - company2.startYear)
+
+      //  console.log(after2K)
 
 // 5.  COMPUTE INTEGERS
 
 //     - use the array methods to multiply all integers in an array by 5.
-//       [1,2,3,4] should be [5,10,15,20]
+ //   let numbers1 =  [1,2,3,4] //should be //[5,10,15,20]
 //       [1,2,undefined,6] should be [5,10,30]
 //       [1,3,25.5,4,32.9] should be [5,15,20]
+
+let multiply = numbers1
+.filter(num => Number.isInteger(num))
+.map(num => num * 5)
+
+//console.log(multiply)
 
 // 6.
 
